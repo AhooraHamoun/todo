@@ -13,6 +13,15 @@ class Task extends HiveObject{
   Priority priority=Priority.normal;
 }
 
+@HiveType(typeId: 1)
 enum Priority{
-  low,normal,high
+
+  @HiveField(0)
+  low,
+  
+  @HiveField(1)
+  normal,
+  
+  @HiveField(2)
+  high
 }
