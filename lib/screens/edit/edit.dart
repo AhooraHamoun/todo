@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:todo/data.dart';
+import 'package:todo/data/data.dart';
 import 'package:todo/main.dart';
 
 class EditTaskScreen extends StatefulWidget {
-  final Task task;
+  final TastEntity task;
 
   EditTaskScreen({super.key, required this.task});
 
@@ -36,7 +36,7 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
             if (widget.task.isInBox) {
               widget.task.save();
             } else {
-              final Box<Task> box = Hive.box(taskBoxName);
+              final Box<TastEntity> box = Hive.box(taskBoxName);
               box.add(widget.task);
             }
             Navigator.of(context).pop();

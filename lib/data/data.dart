@@ -2,7 +2,8 @@ import 'package:hive_flutter/adapters.dart';
 part 'data.g.dart';
 
 @HiveType(typeId: 0)
-class Task extends HiveObject{
+class TastEntity extends HiveObject{
+  int id=-1;
   @HiveField(0)
   String header='';
   @HiveField(1)

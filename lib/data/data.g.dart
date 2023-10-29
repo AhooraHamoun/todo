@@ -6,17 +6,17 @@ part of 'data.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class TaskAdapter extends TypeAdapter<Task> {
+class TaskAdapter extends TypeAdapter<TastEntity> {
   @override
   final int typeId = 0;
 
   @override
-  Task read(BinaryReader reader) {
+  TastEntity read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Task()
+    return TastEntity()
       ..header = fields[0] as String
       ..taskText = fields[1] as String
       ..isCompleted = fields[2] as bool
@@ -24,7 +24,7 @@ class TaskAdapter extends TypeAdapter<Task> {
   }
 
   @override
-  void write(BinaryWriter writer, Task obj) {
+  void write(BinaryWriter writer, TastEntity obj) {
     writer
       ..writeByte(4)
       ..writeByte(0)
